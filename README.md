@@ -28,8 +28,15 @@ Once running, the bot checks all guilds for changes every few minutes. All data 
         pip install -r requirements.txt
         ```
 
-    5. In [bot_globals.py](bot_globals.py), update the following:
+    5. In [bot_globals.py](data/bot_globals.py), update the following:
         - `bot_token` with your bot’s secret token (string)
+    
+    6. Finally, you dont want to accidentally git push sensitive data! ([*what is this?*](https://git-scm.com/docs/git-update-index#Documentation/git-update-index.txt---no-skip-worktree))
+        ```
+        git update-index --skip-worktree data/bot_globals.py
+        git update-index --skip-worktree data/changelog.txt
+        git update-index --skip-worktree data/memlog.json
+        ```
 
 
 
