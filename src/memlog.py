@@ -103,6 +103,6 @@ def memlog(guild):
         json.dump(memdict, f, indent=4)
     
     if full_memlog != "":
-        full_memlog = guild.name + "\n" + full_memlog.encode('unicode-escape').replace("; ", "\n") + "\n\n"
+        full_memlog = guild.name + "\n" + full_memlog.encode('unicode-escape').decode('utf-8').replace("; ", "\n") + "\n\n"
         with open(changelog_file, "a") as f:
             f.write(full_memlog)
