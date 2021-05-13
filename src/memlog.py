@@ -56,7 +56,7 @@ def memlog(guild):
 
             # check if every property matches, if not then add change to log and update memdict
             if memdict_guild[member_id]["name"] != member.name:
-                s = f"{timestamp} name {memdict_guild[member_id]['name']} -> {member.name}; "
+                s = f"{timestamp} name {memdict_guild[member_id]['name']} -> {member.name}; ".encode('unicode-escape').decode('utf-8')
                 full_memlog += str(member.name).rjust(10) + " " + s
                 memdict_guild[member_id]["changelog"] += s
                 memdict_guild[member_id]["name"] = member.name
@@ -69,7 +69,7 @@ def memlog(guild):
             
             for role in member.roles:
                 if role.name not in memdict_guild[member_id]["roles"]:
-                    s = f"{timestamp} role + {role.name}; "
+                    s = f"{timestamp} role + {role.name}; ".encode('unicode-escape').decode('utf-8')
                     full_memlog += str(member.name).rjust(10) + " " + s
                     memdict_guild[member_id]["changelog"] += s
                     memdict_guild[member_id]["roles"].append(role.name)
@@ -81,7 +81,7 @@ def memlog(guild):
                     member_role_name_list.append(role.name)
                 
                 if rolename not in member_role_name_list:
-                    s = f"{timestamp} role - {rolename}; "
+                    s = f"{timestamp} role - {rolename}; ".encode('unicode-escape').decode('utf-8')
                     full_memlog += str(member.name).rjust(10) + " " + s
                     memdict_guild[member_id]["changelog"] += s
                     memdict_guild[member_id]["roles"].remove(rolename)
@@ -94,7 +94,7 @@ def memlog(guild):
     for member in memdict_guild:
         if member not in member_id_list:
             if memdict_guild[member]["server"] != 0:
-                s = f"{timestamp} left; "
+                s = f"{timestamp} left; ".encode('unicode-escape').decode('utf-8')
                 full_memlog += str(memdict_guild[member]["name"]).rjust(10) + " " + s
                 memdict_guild[member]["changelog"] += s
                 memdict_guild[member]["server"] = 0
@@ -103,6 +103,6 @@ def memlog(guild):
         json.dump(memdict, f, indent=4)
     
     if full_memlog != "":
-        full_memlog = guild.name + "\n" + full_memlog.encode('unicode-escape').decode('utf-8').replace("; ", "\n") + "\n\n"
+        full_memlog = guild.name + "= " + full_memlog + ";END; "
         with open(changelog_file, "a") as f:
-            f.write(full_memlog)
+            json.dump(full_memlog, f)
