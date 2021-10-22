@@ -1,7 +1,8 @@
 # MemlogBot
-A [discord.py](https://github.com/Rapptz/discord.py) bot that keeps track of ever-changing members, names, discriminators and roles for all your guilds/servers!
 
-Once running, the bot checks all guilds for changes every few minutes. All data is stored in [memlog.json](data/memlog.json) and the a crude summary of changes are appended to [changelog.txt](data/changelog.txt).
+***Update: [discord.py is no longer maintained](https://gist.github.com/Rapptz/4a2f62751b9600a31a0d3c78100287f1), this repository has been archived.***
+
+A [discord.py](https://github.com/Rapptz/discord.py) bot that keeps track of ever-changing members, names, discriminators and roles for all your guilds/servers! Once running, the bot checks all guilds for changes every few minutes. All data is stored in [memlog.json](data/memlog.json) and the a crude summary of changes are appended to [changelog.txt](data/changelog.txt).
 
 ## Setup
 
@@ -40,5 +41,8 @@ Once running, the bot checks all guilds for changes every few minutes. All data 
 
 
 
-## Running the bot
-1. Run the [bot.py](bot.py) file from the main directory, `python bot.py`.
+## Run
+Navigate to the main directory and run the [bot.py](bot.py) file
+```
+python bot.py
+```
