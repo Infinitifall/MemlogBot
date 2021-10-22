@@ -18,7 +18,7 @@ A [discord.py](https://github.com/Rapptz/discord.py) bot that keeps track of eve
 
     2. Clone this repository
         ```
-        git clone git@github.com:Infinitifall/MemlogBot.git
+        git clone https://github.com/Infinitifall/MemlogBot.git
         cd MemlogBot
         ```
     
